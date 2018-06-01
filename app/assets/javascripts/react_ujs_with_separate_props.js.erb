@@ -279,16 +279,16 @@ var ReactRailsUJS = {
 
     switch (typeof searchSelector) {
       case 'undefined':
-        selector = '[' + classNameAttr + '="' + propsId + '"' + ']';
+        selector = 'script[' + classNameAttr + '="' + propsId + '"' + ']';
         parent = document;
         break;
       case 'object':
-        selector = '[' + classNameAttr + '="' + propsId + '"' + ']';
+        selector = 'script[' + classNameAttr + '="' + propsId + '"' + ']';
         parent = searchSelector;
         break;
       case 'string':
-        selector = searchSelector + '[' + classNameAttr + '="' + propsId + '"' + '], ' +
-                   searchSelector + ' [' + classNameAttr + '="' + propsId + '"' + ']';
+        selector = searchSelector + 'script[' + classNameAttr + '="' + propsId + '"' + '], ' +
+                   searchSelector + ' script[' + classNameAttr + '="' + propsId + '"' + ']';
         parent = document;
         break
       default:
