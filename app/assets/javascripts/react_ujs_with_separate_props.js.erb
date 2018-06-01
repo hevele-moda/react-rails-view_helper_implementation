@@ -272,7 +272,7 @@ var ReactRailsUJS = {
   },
 
   // helper method to find the <script> tag with the props
-  findPropsScript: function(propsId) {
+  findPropsScript: function(searchSelector, propsId) {
     var classNameAttr = ReactRailsUJS.PROPS_ID_ATTR;
     // we will use fully qualified paths as we do not bind the callbacks
     var selector, parent;
@@ -333,7 +333,7 @@ var ReactRailsUJS = {
       var className = node.getAttribute(ujs.CLASS_NAME_ATTR);
       var constructor = ujs.getConstructor(className);
       var propsId = node.getAttribute(ujs.PROPS_ID_ATTR);
-      var propsJson = propsId && ujs.findPropsScript(propsId).text;
+      var propsJson = propsId && ujs.findPropsScript(searchSelector, propsId).text;
       var props = propsJson && JSON.parse(propsJson);
       var hydrate = node.getAttribute(ujs.RENDER_ATTR);
 
